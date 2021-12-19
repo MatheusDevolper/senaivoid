@@ -12,3 +12,23 @@ We will build a full-stack Tutorial Application in that:
 - We can create a ticket, retrieve, update, delete .
 - We can also find ticket and look at your progress .
 - We can below shows screenshots of our System...
+
+
+Details about the resources of api:
+1.Resource: status
+// http://localhost:8082/api/v1/status
+	return: String 
+		"Application Ticket - Online Active"
+
+2.Resource: status
+// http://localhost:8082/api/v1/tickets
+	return: List of tickets 
+		[
+			{
+				"id" : 1,
+				"title" : "Create a application for Ticket to register"
+				"description" : "Create a application for Ticket to register in Java"
+				"user" : "Master"
+			}
+		]
+
