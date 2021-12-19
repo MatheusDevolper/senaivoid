@@ -17,18 +17,41 @@ We will build a full-stack Tutorial Application in that:
 Details about the resources of api:
 1.Resource: status
 // http://localhost:8082/api/v1/status
-	return: String 
+	response: String 
 		"Application Ticket - Online Active"
-
-2.Resource: status
+		
+2.Resource: tickets
 // http://localhost:8082/api/v1/tickets
-	return: List of tickets 
+	response: List of ticket object 
 		[
 			{
 				"id" : 1,
 				"title" : "Create a application for Ticket to register"
 				"description" : "Create a application for Ticket to register in Java"
 				"user" : "Master"
-			}
+			},
+			{
+				"id" : 2,
+				"title" : "Create a application for Ticket to register"
+				"description" : "Create a application for Ticket to register in Java"
+				"user" : "Master"
+			},
+			...
 		]
-
+	
+2.Resource: login
+	request: A Login object
+	{
+		"id": 1,
+		"email": "maria@gmail.com",
+		"password": "xxx",
+		"status": true
+	}
+// http://localhost:8082/api/v1/login
+	response: If email and password is trust return a login object
+	{
+		"id": 1,
+		"email": "maria@gmail.com",
+		"password": "xxx",
+		"status": true
+	}
