@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -49,6 +51,7 @@ public class TicketResourceRestApiController {
 				
 				
 	}
+	
 	@GetMapping("/status")
 	public String status() {
 		return "Application Ticket - Online Active";
@@ -74,10 +77,20 @@ public class TicketResourceRestApiController {
 	}
 	
 	@PostMapping("ticket")
-	public ResponseEntity save(@RequestBody Ticket tic) {
+	public ResponseEntity<Ticket> save(@RequestBody Ticket tic) {
+		Ticket newTicket = null;
+		HttpHeaders responseHeaders = new HttpHeaders();
 	    if(tic.getTitle() != "" || tic.getTitle() != null) {
-	    	ticketList.add(tic);
+	    	if(ticketList.size() > 0) {
+	    		long xid = ticketList.size() + 1;
+	    		newTicket = new Ticket(xid, tic.getTitle(), tic.getDescription(), tic.getUser(), tic.getPrioridade());
+	    	}
+	    	else
+	    	{
+	    		newTicket = new Ticket(1, tic.getTitle(), tic.getDescription(), tic.getUser(), tic.getPrioridade());
+	    	}
+	    	ticketList.add(newTicket);
 	    }
-	    return ResponseEntity.ok(ticketList);
+	    return new ResponseEntity<>(newTicket, responseHeaders, HttpStatus.OK);
 	}
 }
