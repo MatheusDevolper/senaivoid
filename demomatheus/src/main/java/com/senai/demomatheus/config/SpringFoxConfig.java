@@ -19,6 +19,6 @@ public class SpringFoxConfig {
 				.paths(PathSelectors.any())
 				.build();
 	}
-	// your-app-root/v2/api-docs
-	// http..your-app-root/swagger-ui/index.html
+	// http://localhost:8082/v2/api-docs
+	// http://localhost:8082/swagger-ui/index.html
 }

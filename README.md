@@ -27,35 +27,7 @@ Details about the resources of api:
 2.Resource: tickets
 // http://localhost:8082/api/v1/tickets
 	response: List of ticket object 
-		[
-			{
-				"id" : 1,
-				"title" : "Create a application for Ticket to register"
-				"description" : "Create a application for Ticket to register in Java"
-				"user" : "Master"
-			},
-			{
-				"id" : 2,
-				"title" : "Create a application for Ticket to register"
-				"description" : "Create a application for Ticket to register in Java"
-				"user" : "Master"
-			},
-			...
-		]
-	
-2.Resource: login
-	request: A Login object
-	{
-		"id": 1,
-		"email": "maria@gmail.com",
-		"password": "xxx",
-		"status": true
-	}
-// http://localhost:8082/api/v1/login
-	response: If email and password is trust return a login object
-	{
-		"id": 1,
-		"email": "maria@gmail.com",
-		"password": "xxx",
-		"status": true
-	}
+
+Swagger information for help you design and document of APIs this application:
+	// http://localhost:8082/v2/api-docs
+	// http://localhost:8082/swagger-ui/index.html
